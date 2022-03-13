@@ -16,8 +16,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -29,8 +29,15 @@ time, mark, audio, video {
 
 	font-family: 'Poppins','Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
 }
+
+html,body{
+    width:100%;
+	  height:100%;
+
+    background-color:var(--teal3);
+  }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -52,4 +59,30 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+:root{
+        --bg-body: #EBEBEB;
+
+        --teal1: #0FC2C0;
+        --teal2: #0CABA8;
+        --teal3: #008F8C;
+        --teal4: #015958;
+        --teal5: #023535;
+
+        --green: #39b54a;
+        --red: #DF6A6A;
+
+        --white: #FFFFFF;
+        --black: #232323;
+
+        --gray: #CCCCCC;
+        --gray2: #707070;
+        --dark-gray: #363636;
+        --light-gray:#EBEBEB;
+
+        --width-m: 1200px;
+
+        --padding-default: 20px;
+    }
+
 `;
