@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
+import {Header} from 'shared/components/Header';
+
 import { UserService } from 'shared/services';
 
 //import { MainNavigation, Sidenav } from 'shared/components'
@@ -19,6 +21,7 @@ export const Private: React.FC<Props> = ({
 
   return service.isAuthenticated() ? (
     <S.Container>
+      <Header/>
       <S.Content>
         <RouteComponent />
       </S.Content>
