@@ -1,20 +1,35 @@
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
+import { useMenuContext } from 'shared/contexts';
+
 import * as S from './styles';
 
 export const Header: React.FC = () => {
   const [mobile, setMobile] = useState<boolean>(false);
+  const { menus, toggleItem } = useMenuContext();
 
   return (
     <S.Menu>
       <S.Logo />
       <S.Items>
-        <S.Item to="/">Dashboard</S.Item>
-        <S.Item to="/">Investimentos</S.Item>
-        <S.Item to="/">Proventos</S.Item>
-        <S.Item to="/">Perfil</S.Item>
-        <button className='button-exit'>Sair</button>
+        {menus &&
+          menus.map((menu) =>
+            menu.isButton ? (
+              <button key={menu.id} className="button-exit">
+                {menu.label}
+              </button>
+            ) : (
+              <S.Item
+                key={menu.id}
+                to="/"
+                className={menu.active ? 'active-menu' : ''}
+                onClick={() => toggleItem(menu.id, menus)}
+              >
+                {menu.label}
+              </S.Item>
+            )
+          )}
       </S.Items>
       <S.MobileMenu>
         {mobile ? (

@@ -84,4 +84,8 @@ table {
 
         --padding-default: 20px;
     }
+
+    .active-menu{
+      background-color: var(--teal5);
+    }
 `;
