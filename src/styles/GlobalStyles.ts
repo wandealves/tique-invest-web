@@ -34,7 +34,7 @@ html,body{
     width:100%;
 	  height:100%;
 
-    background-color:var(--teal3);
+    background-color:var(--teal4);
   }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
@@ -84,5 +84,4 @@ table {
 
         --padding-default: 20px;
     }
-
 `;
