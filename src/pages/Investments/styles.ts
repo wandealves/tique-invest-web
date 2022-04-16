@@ -29,7 +29,7 @@ export const Container = styled.div`
     padding: 10px;
     text-align: left;
     font-weight: 700;
-    background-color: var(--green);
+    background-color: var(--teal5);
     color: var(--white);
   }
 
@@ -51,7 +51,7 @@ export const Container = styled.div`
 
     svg {
       font-size: 30px;
-      color: var(--green);
+      color: var(--teal5);
     }
   }
 
@@ -60,7 +60,7 @@ export const Container = styled.div`
 
     &:hover {
       opacity: 0.6;
-      color: var(--green);
+      color: var(--teal3);
       transition: 0.3s ease-in;
     }
   }
