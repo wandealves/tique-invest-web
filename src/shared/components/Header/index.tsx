@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
             ) : (
               <S.Item
                 key={menu.id}
-                to="/"
+                to={menu.to}
                 className={menu.active ? 'active-menu' : ''}
                 onClick={() => toggleItem(menu.id, menus)}
               >

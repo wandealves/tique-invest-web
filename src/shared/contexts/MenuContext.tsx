@@ -4,7 +4,7 @@ import _ from 'lodash';
 type Menu = {
   id: number
   label: string
-  to: string | null
+  to: string
   active: boolean
   isButton: boolean
 }

@@ -5,44 +5,44 @@ import { useMenuContext } from 'shared/contexts';
 
 import { Private } from 'shared/layouts';
 
-import { Login, Home } from 'pages';
+import { Login, Home, Investments } from 'pages';
 
 export const AppRoutes = () => {
   const { buildMenus } = useMenuContext();
   useEffect(() => {
     buildMenus([
       {
-        id:1,
+        id: 1,
         label: 'Dashboard',
         to: '/',
         active: true,
         isButton: false
       },
       {
-        id:2,
+        id: 2,
         label: 'Investimentos',
-        to: '/',
+        to: '/investimentos',
         active: false,
         isButton: false
       },
       {
-        id:3,
+        id: 3,
         label: 'Proventos',
         to: '/',
         active: false,
         isButton: false
       },
       {
-        id:4,
+        id: 4,
         label: 'Perfil',
         to: '/',
         active: false,
         isButton: false
       },
       {
-        id:5,
+        id: 5,
         label: 'Sair',
-        to: null,
+        to: 'sair',
         active: false,
         isButton: true
       }
@@ -52,6 +52,11 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Private component={Home} />} />
+      <Route
+        path="/investimentos"
+        element={<Private component={Investments} />}
+      />
+
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
