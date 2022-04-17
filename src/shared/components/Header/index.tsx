@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import _ from 'lodash';
 
 import { useMenuContext } from 'shared/contexts';
 
@@ -14,22 +15,17 @@ export const Header: React.FC = () => {
       <S.Logo />
       <S.Items>
         {menus &&
-          menus.map((menu) =>
-            menu.isButton ? (
-              <button key={menu.id} className="button-exit">
-                {menu.label}
-              </button>
-            ) : (
-              <S.Item
-                key={menu.id}
-                to={menu.to}
-                className={menu.active ? 'active-menu' : ''}
-                onClick={() => toggleItem(menu.id, menus)}
-              >
-                {menu.label}
-              </S.Item>
-            )
-          )}
+          menus.map((menu) => (
+            <S.Item
+              key={menu.id}
+              backgroundColor={menu.backgroundColor}
+              size={_.size(menus)}
+              className={menu.active ? 'active-menu' : ''}
+              onClick={() => toggleItem(menu.id, menus)}
+            >
+              {menu.label}
+            </S.Item>
+          ))}
       </S.Items>
       <S.MobileMenu>
         {mobile ? (

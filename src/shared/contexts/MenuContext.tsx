@@ -5,6 +5,7 @@ type Menu = {
   id: number
   label: string
   to: string
+  backgroundColor: string
   active: boolean
   isButton: boolean
 }

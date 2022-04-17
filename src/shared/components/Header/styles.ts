@@ -1,23 +1,20 @@
 import styled, { css } from 'styled-components';
-import { NavLink } from 'react-router-dom';
 
 import logo from 'assets/logo_transparent.png';
 
 const Link = css`
+  height: 45px;
+
   font-size: 20px;
   font-weight: 700;
-  text-align: center;
   color: var(--white);
   text-decoration: none;
-
-  background-color: var(--teal3);
-
-  padding: 16px 80px;
 
   opacity: 0.6;
   transition: 0.3s;
 
   border-radius: 5px;
+  border: none;
 
   :hover {
     opacity: 1;
@@ -43,6 +40,7 @@ export const Logo = styled.img.attrs({
 `;
 
 export const Items = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,19 +48,16 @@ export const Items = styled.div`
 
   padding-right: 20px;
 
-  .button-exit {
-    ${Link}
-    border:none;
-    background-color: var(--red);
-  }
-
   @media (max-width: 990px) {
     display: none;
   }
 `;
 
-export const Item = styled(NavLink)`
+export const Item = styled.button<{ backgroundColor: string; size: number }>`
+  width: ${(p) => `calc(100% / ${p.size})`};
   ${Link}
+
+  background-color: ${(p) => p.backgroundColor};
 `;
 
 export const MobileMenu = styled.div`
