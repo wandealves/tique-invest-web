@@ -6,6 +6,10 @@ import * as S from './styles';
 export const Investments: React.FC = () => {
   return (
     <S.Container>
+      <S.Toolbar>
+        <S.StyledInput placeholder='Pesquisar'/>
+        <button>Novo</button>
+      </S.Toolbar>
       <table className="customers">
         <tr>
           <th style={{ width: 180 }}>Ativo</th>
@@ -22,10 +26,10 @@ export const Investments: React.FC = () => {
           <td>20/10/2022</td>
           <td>10</td>
           <td>R$ 20,10</td>
-          <td style={{ textAlign:'center' }}>
+          <td style={{ textAlign:'center',cursor:'pointer' }}>
             <FaPen/>
           </td>
-          <td style={{ textAlign:'center' }}>
+          <td style={{ textAlign:'center',cursor:'pointer' }}>
             <FaTrash/>
           </td>
         </tr>
