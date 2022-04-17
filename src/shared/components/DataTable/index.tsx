@@ -1,281 +1,72 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { IconType } from 'react-icons';
 import { FaArrowLeft, FaArrowRight, FaPen, FaTrash } from 'react-icons/fa';
 
 import * as S from './styles';
 
-export const DataTable: React.FC = () => {
+export type Column = {
+  title: string
+  width: number
+  textAlign:
+    | 'center'
+    | 'end'
+    | 'justify'
+    | 'left'
+    | 'match-parent'
+    | 'right'
+    | 'start'
+}
+
+type RowItem = {
+  value: string | number | boolean
+  icon: IconType | null
+  //func: (type: string) => void
+}
+
+export type Row = {
+  id: number
+  items: RowItem[]
+}
+
+export type Props = {
+  columns: Column[]
+  rows: Row[]
+  children?: ReactNode
+}
+
+/*
+<th style={{ width: 180 }}>Ativo</th>
+<th style={{ width: 120 }}>Tipo</th>
+<th style={{ width: 120 }}>Data Compra</th>
+<th style={{ width: 120 }}>Quantidade</th>
+<th style={{ width: 120 }}>Preço Médio</th>
+<th style={{ width: 90, textAlign: 'center' }}></th>
+<th style={{ width: 90, textAlign: 'center' }}></th>*/
+
+export const DataTable: React.FC<Props> = ({ columns, rows }) => {
   return (
     <S.Container>
       <table className="customers">
         <tr>
-          <th style={{ width: 180 }}>Ativo</th>
-          <th style={{ width: 120 }}>Tipo</th>
-          <th style={{ width: 120 }}>Data Compra</th>
-          <th style={{ width: 120 }}>Quantidade</th>
-          <th style={{ width: 120 }}>Preço Médio</th>
-          <th style={{ width: 90, textAlign: 'center' }}></th>
-          <th style={{ width: 90, textAlign: 'center' }}></th>
+          {columns.map((c, index) => (
+            <th key={index} style={{ width: c.width, textAlign: c.textAlign }}>
+              {c.title}
+            </th>
+          ))}
         </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center', cursor: 'pointer' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center', cursor: 'pointer' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
-        <tr>
-          <td>MXRF11</td>
-          <td>FIIS</td>
-          <td>20/10/2022</td>
-          <td>10</td>
-          <td>R$ 20,10</td>
-          <td style={{ textAlign: 'center' }}>
-            <FaPen />
-          </td>
-          <td style={{ textAlign: 'center' }}>
-            <FaTrash />
-          </td>
-        </tr>
+        {rows.map((row) => (
+          <tr key={row.id}>
+            {row.items.map((item, index) =>
+              item.icon ? (
+                <td style={{ textAlign: 'center', cursor: 'pointer' }}>
+                  {<item.icon />}
+                </td>
+              ) : (
+                <td key={index}>{item.value}</td>
+              )
+            )}
+          </tr>
+        ))}
         <tfoot className="footer">
           <tr>
             <td colSpan={7}>
