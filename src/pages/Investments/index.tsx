@@ -1,15 +1,14 @@
 import React from 'react';
 import {FaArrowLeft,FaArrowRight,FaPen,FaTrash} from 'react-icons/fa';
 
+import {Toolbar} from 'shared/components';
+
 import * as S from './styles';
 
 export const Investments: React.FC = () => {
   return (
     <S.Container>
-      <S.Toolbar>
-        <S.StyledInput placeholder='Pesquisar'/>
-        <button>Novo</button>
-      </S.Toolbar>
+      <Toolbar/>
       <table className="customers">
         <tr>
           <th style={{ width: 180 }}>Ativo</th>
