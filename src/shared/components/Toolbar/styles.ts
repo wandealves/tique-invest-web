@@ -10,7 +10,7 @@ export const Container = styled.div`
   input {
     width: 300px;
 
-    padding: 5px;
+    padding: 10px;
 
     border-radius: 5px;
 
@@ -22,7 +22,7 @@ export const Container = styled.div`
   button {
     width: 120px;
 
-    padding: 5px;
+    padding: 10px;
 
     font-size: 16px;
     font-weight: 700;
