@@ -1,6 +1,12 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'),;
+}
+
 * {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
@@ -27,7 +33,7 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 
-	font-family: 'Poppins','Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+	font-family: 'Roboto','Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
 }
 
 html,body{
