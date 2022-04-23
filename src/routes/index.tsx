@@ -5,7 +5,7 @@ import { useMenuContext } from 'shared/contexts';
 
 import { Private } from 'shared/layouts';
 
-import { Login, Home, Investments } from 'pages';
+import { Login, Home, Investments, Investment } from 'pages';
 
 export const AppRoutes = () => {
   const { buildMenus } = useMenuContext();
@@ -15,7 +15,7 @@ export const AppRoutes = () => {
         id: 1,
         label: 'Dashboard',
         to: '/',
-        backgroundColor:' #008F8C',
+        backgroundColor: ' #008F8C',
         active: true,
         isButton: false
       },
@@ -23,7 +23,7 @@ export const AppRoutes = () => {
         id: 2,
         label: 'Investimentos',
         to: '/investimentos',
-        backgroundColor:' #008F8C',
+        backgroundColor: ' #008F8C',
         active: false,
         isButton: false
       },
@@ -31,7 +31,7 @@ export const AppRoutes = () => {
         id: 3,
         label: 'Proventos',
         to: '/',
-        backgroundColor:' #008F8C',
+        backgroundColor: ' #008F8C',
         active: false,
         isButton: false
       },
@@ -39,7 +39,7 @@ export const AppRoutes = () => {
         id: 4,
         label: 'Perfil',
         to: '/',
-        backgroundColor:' #008F8C',
+        backgroundColor: ' #008F8C',
         active: false,
         isButton: false
       },
@@ -47,7 +47,7 @@ export const AppRoutes = () => {
         id: 5,
         label: 'Sair',
         to: 'sair',
-        backgroundColor:' #DF6A6A',
+        backgroundColor: ' #DF6A6A',
         active: false,
         isButton: true
       }
@@ -60,6 +60,10 @@ export const AppRoutes = () => {
       <Route
         path="/investimentos"
         element={<Private component={Investments} />}
+      />
+      <Route
+        path="/investimento"
+        element={<Private component={Investment} />}
       />
 
       <Route path="/login" element={<Login />} />
