@@ -82,7 +82,7 @@ export const Investments: React.FC = () => {
 
   return (
     <>
-      <Toolbar />
+      <Toolbar toNew="/investimento" />
       <DataTable columns={columns} rows={rows} />
     </>
   );
