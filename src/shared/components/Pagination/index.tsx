@@ -16,7 +16,6 @@ export const Pagination: React.FC<Props> = ({ onNext, pages }) => {
   };
 
   useEffect(() => {
-    console.log(page);
     onNext(page);
   }, [page]);
 

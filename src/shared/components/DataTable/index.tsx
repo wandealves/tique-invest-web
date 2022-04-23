@@ -21,7 +21,7 @@ export type Column = {
 type RowItem = {
   value: string | number | boolean
   icon: IconType | null
-  //func: (type: string) => void
+  onClick?: (type: string) => void
 }
 
 export type Row = {
@@ -36,33 +36,47 @@ export type Props = {
 }
 
 export const DataTable: React.FC<Props> = ({ columns, rows }) => {
+  const handleNextPage = (page: number) => {
+    console.log('page', page);
+  };
+
   return (
     <S.Container>
       <table className="customers">
-        <tr>
-          {columns.map((c, index) => (
-            <th key={index} style={{ width: c.width, textAlign: c.textAlign }}>
-              {c.title}
-            </th>
-          ))}
-        </tr>
-        {rows.map((row) => (
-          <tr key={row.id}>
-            {row.items.map((item, index) =>
-              item.icon ? (
-                <td style={{ textAlign: 'center', cursor: 'pointer' }}>
-                  {<item.icon />}
-                </td>
-              ) : (
-                <td key={index}>{item.value}</td>
-              )
-            )}
+        <thead>
+          <tr>
+            {columns.map((c, index) => (
+              <th
+                key={index}
+                style={{ width: c.width, textAlign: c.textAlign }}
+              >
+                {c.title}
+              </th>
+            ))}
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.id}>
+              {row.items.map((item, index) =>
+                item.icon ? (
+                  <td
+                    key={index}
+                    style={{ textAlign: 'center', cursor: 'pointer' }}
+                  >
+                    {<item.icon />}
+                  </td>
+                ) : (
+                  <td key={index}>{item.value}</td>
+                )
+              )}
+            </tr>
+          ))}
+        </tbody>
         <tfoot className="footer">
           <tr>
             <td colSpan={7}>
-              <Pagination pages={6} onNext={() => console.log()} />
+              <Pagination pages={6} onNext={(page) => handleNextPage(page)} />
             </td>
           </tr>
         </tfoot>

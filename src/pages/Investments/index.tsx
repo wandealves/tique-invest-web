@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaArrowLeft, FaArrowRight, FaPen, FaTrash } from 'react-icons/fa';
+import { FaPen, FaTrash } from 'react-icons/fa';
 
 import { Toolbar, DataTable, Column, Row } from 'shared/components';
 
@@ -80,10 +80,6 @@ export const Investments: React.FC = () => {
     }
   ];
 
-  //const data = {
-  // columns
-  //items: null
-  // };
   return (
     <>
       <Toolbar />
