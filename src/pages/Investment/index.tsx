@@ -18,7 +18,7 @@ export const Investment: React.FC = () => {
       <div className="form-field">
         <label>Tipo</label>
         <select name="select">
-          <option value="valor1" selected>
+          <option value="valor1">
             Selecione o tipo de ativo
           </option>
           <option value="valor2">Ação</option>

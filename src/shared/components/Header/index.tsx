@@ -1,14 +1,22 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import _ from 'lodash';
 
-import { useMenuContext } from 'shared/contexts';
+import { useMenuContext, Menu } from 'shared/contexts';
 
 import * as S from './styles';
 
 export const Header: React.FC = () => {
   const [mobile, setMobile] = useState<boolean>(false);
   const { menus, toggleItem } = useMenuContext();
+  const navigate = useNavigate();
+
+  const handleAction = (menu: Menu) => {
+    toggleItem(menu.id, menus);
+
+    navigate(menu.to);
+  };
 
   return (
     <S.Menu>
@@ -21,7 +29,7 @@ export const Header: React.FC = () => {
               backgroundColor={menu.backgroundColor}
               size={_.size(menus)}
               className={menu.active ? 'active-menu' : ''}
-              onClick={() => toggleItem(menu.id, menus)}
+              onClick={() => handleAction(menu)}
             >
               {menu.label}
             </S.Item>

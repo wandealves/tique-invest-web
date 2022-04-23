@@ -57,6 +57,8 @@ export const Item = styled.button<{ backgroundColor: string; size: number }>`
   width: ${(p) => `calc(100% / ${p.size})`};
   ${Link}
 
+  cursor: pointer;
+
   background-color: ${(p) => p.backgroundColor};
 `;
 

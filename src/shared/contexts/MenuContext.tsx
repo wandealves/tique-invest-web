@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
 import _ from 'lodash';
 
-type Menu = {
+export type Menu = {
   id: number
   label: string
   to: string
