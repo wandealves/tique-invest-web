@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { IconType } from 'react-icons';
-import { FaArrowLeft, FaArrowRight, FaPen, FaTrash } from 'react-icons/fa';
+
+import { Pagination } from 'shared/components';
 
 import * as S from './styles';
 
@@ -34,15 +35,6 @@ export type Props = {
   children?: ReactNode
 }
 
-/*
-<th style={{ width: 180 }}>Ativo</th>
-<th style={{ width: 120 }}>Tipo</th>
-<th style={{ width: 120 }}>Data Compra</th>
-<th style={{ width: 120 }}>Quantidade</th>
-<th style={{ width: 120 }}>Preço Médio</th>
-<th style={{ width: 90, textAlign: 'center' }}></th>
-<th style={{ width: 90, textAlign: 'center' }}></th>*/
-
 export const DataTable: React.FC<Props> = ({ columns, rows }) => {
   return (
     <S.Container>
@@ -70,12 +62,7 @@ export const DataTable: React.FC<Props> = ({ columns, rows }) => {
         <tfoot className="footer">
           <tr>
             <td colSpan={7}>
-              <div className="footer-item">
-                <div className="action-pagination">
-                  <FaArrowLeft className="actions" />
-                  <FaArrowRight className="actions" />
-                </div>
-              </div>
+              <Pagination pages={6} onNext={() => console.log()} />
             </td>
           </tr>
         </tfoot>

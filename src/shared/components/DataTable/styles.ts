@@ -37,11 +37,11 @@ width:100%;
   .footer tr:hover {
     background-color: #f2f2f2;
   }
-
+/*
   .footer-item {
     width: 100%;
     display: flex;
-  }
+  }*/
 
   .action-pagination {
     width: 100%;
